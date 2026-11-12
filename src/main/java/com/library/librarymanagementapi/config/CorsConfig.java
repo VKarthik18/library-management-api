@@ -1,3 +1,4 @@
+
 package com.library.librarymanagementapi.config;
 
 import org.springframework.context.annotation.Bean;
@@ -17,7 +18,10 @@ public class CorsConfig {
         CorsConfiguration configuration = new CorsConfiguration();
 
         configuration.setAllowedOrigins(
-                List.of("http://localhost:5173")
+                List.of(
+                        "http://localhost:5173",
+                        "https://library-management-virid-five.vercel.app"
+                )
         );
 
         configuration.setAllowedMethods(
