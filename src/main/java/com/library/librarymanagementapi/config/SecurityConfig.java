@@ -1,3 +1,4 @@
+
 package com.library.librarymanagementapi.config;
 
 import org.springframework.context.annotation.Bean;
@@ -19,21 +20,22 @@ public class SecurityConfig {
             .csrf(csrf -> csrf.disable())
             .cors(cors -> {})
             .authorizeHttpRequests(auth -> auth
-            .requestMatchers(HttpMethod.GET, "/api/books/**").permitAll()
+                .requestMatchers(HttpMethod.GET, "/api/books/**").permitAll()
 
-            .requestMatchers(HttpMethod.POST, "/api/books/**").hasRole("ADMIN")
-            .requestMatchers(HttpMethod.PUT, "/api/books/**").hasRole("ADMIN")
-            .requestMatchers(HttpMethod.DELETE, "/api/books/**").hasRole("ADMIN")
+                .requestMatchers(HttpMethod.POST, "/api/books/**").hasRole("ADMIN")
+                .requestMatchers(HttpMethod.PUT, "/api/books/**").hasRole("ADMIN")
+                .requestMatchers(HttpMethod.DELETE, "/api/books/**").hasRole("ADMIN")
 
-            .requestMatchers(HttpMethod.POST, "/api/members/**").hasRole("ADMIN")
-            .requestMatchers(HttpMethod.PUT, "/api/members/**").hasRole("ADMIN")
-            .requestMatchers(HttpMethod.DELETE, "/api/members/**").hasRole("ADMIN")
+                .requestMatchers(HttpMethod.POST, "/api/members/**").hasRole("ADMIN")
+                .requestMatchers(HttpMethod.PUT, "/api/members/**").hasRole("ADMIN")
+                .requestMatchers(HttpMethod.DELETE, "/api/members/**").hasRole("ADMIN")
 
-            .requestMatchers(HttpMethod.POST, "/api/issues/**").hasRole("ADMIN")
-            .requestMatchers(HttpMethod.PUT, "/api/issues/**").hasRole("ADMIN")
-            .requestMatchers(HttpMethod.DELETE, "/api/issues/**").hasRole("ADMIN")
-            .anyRequest().authenticated()
-)
+                .requestMatchers(HttpMethod.POST, "/api/issues/**").hasRole("ADMIN")
+                .requestMatchers(HttpMethod.PUT, "/api/issues/**").hasRole("ADMIN")
+                .requestMatchers(HttpMethod.DELETE, "/api/issues/**").hasRole("ADMIN")
+
+                .anyRequest().authenticated()
+            )
             .httpBasic(httpBasic -> {});
 
         return http.build();
